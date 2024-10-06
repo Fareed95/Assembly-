@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "assemble-and-link",
+            "type": "shell",
+            "command": "nasm",
+            "args": [
+                "-f", "elf64",
+                "-g", "${workspaceFolder}/first.asm",
+                "-o", "${workspaceFolder}/first.o"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Assemble the assembly file"
+        },
+        {
+            "label": "link",
+            "type": "shell",
+            "command": "ld",
+            "args": [
+                "${workspaceFolder}/first.o",
+                "-o", "${workspaceFolder}/first"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
